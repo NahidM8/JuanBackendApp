@@ -11,6 +11,7 @@ namespace JuanBackendApp.Data
         public DbSet<Product> Products { get; set; }
         public DbSet<Size> Sizes { get; set; }
         public DbSet<Color> Colors { get; set; }
+        public DbSet<Policy> Policies { get; set; }
 
         public JuanDbContext(DbContextOptions options) : base(options)
         {

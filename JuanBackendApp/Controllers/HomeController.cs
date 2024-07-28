@@ -17,10 +17,10 @@ namespace JuanBackendApp.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            HomeVM homeVM = new HomeVM
-            {
-                Sliders = await _context.Sliders.ToListAsync(),
-            };
+            HomeVM homeVM = new();
+            homeVM.Sliders = await _context.Sliders.Where(s=>!s.IsDeleted).ToListAsync();
+            homeVM.Categories = await _context.Categories.Where(s=>!s.IsDeleted).ToListAsync();
+            homeVM.Policies = await _context.Policies.Where(s=>!s.IsDeleted).ToListAsync();
             return View(homeVM);
         }
         
