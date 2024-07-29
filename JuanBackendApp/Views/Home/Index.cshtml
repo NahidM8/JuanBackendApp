@@ -241,36 +241,31 @@
     </section>
     <!-- our product area end -->
     <!-- banner statistic area start -->
-    <div class="banner-statistics">
-        <div class="container">
-            <div class="row no-gutters mtn-30">
-                <div class="col-md-6">
-                    <div class="img-container mt-30">
-                        <a href="product-details.html">
-                            <img src="~/assets/img/banner/banner-1.jpg"
-                                 alt="banner-image" />
-                        </a>
-                        <div class="banner-text">
-                            <h5 class="banner-subtitle">sports shoes</h5>
-                            <h3 class="banner-title">20% Off<br />For Sports men</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="img-container mt-30">
-                        <a href="product-details.html">
-                            <img src="~/assets/img/banner/banner-2.jpg"
-                                 alt="banner-image" />
-                        </a>
-                        <div class="banner-text">
-                            <h5 class="banner-subtitle">sports shoes</h5>
-                            <h3 class="banner-title">20% Off<br />For Sports men</h3>
+    @for (int i = 0; i < 2; i++)
+    {
+        @foreach (var banner in Model.Banners)
+        {
+            <div class="banner-statistics">
+                <div class="container">
+                    <div class="row no-gutters mtn-30">
+                        <div class="col-md-6">
+                            <div class="img-container mt-30">
+                                <a href="product-details.html">
+                                    <img src="~/assets/img/banner/@banner.Image"
+                                         alt="banner-image" />
+                                </a>
+                                <div class="banner-text">
+                                    <h5 class="banner-subtitle">@banner.Subtitle</h5>
+                                    <h3 class="banner-title">@banner.Title</h3>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+        }
+    }
+
     <!-- banner statistic area end -->
     <!-- new products area start -->
     <section class="top-seller-area section-padding">
